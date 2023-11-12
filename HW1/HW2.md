@@ -77,62 +77,13 @@ print(NO_1Percentage.to_markdown(index=False))
 
 ```python
 # task 3: sort the values at a descending order, then select the top 3 records. 
-VALDELTAGANDE.sort_values("VALDELTAGANDE", ascending = False).head(3)
+topThreeVALDELTAGANDE = VALDELTAGANDE.sort_values("VALDELTAGANDE", ascending = False).head(3)
+print(topThreeVALDELTAGANDE.to_markdown(index=False))
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>KOMMUNNAMN</th>
-      <th>VALDELTAGANDE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>103</th>
-      <td>Lomma</td>
-      <td>93.86</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>Habo</td>
-      <td>93.35</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>Vellinge</td>
-      <td>93.13</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-
-```
-
-
-```python
-
-```
+    | KOMMUNNAMN   |   VALDELTAGANDE |
+    |:-------------|----------------:|
+    | Lomma        |           93.86 |
+    | Habo         |           93.35 |
+    | Vellinge     |           93.13 |
+    
