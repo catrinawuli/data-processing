@@ -19,12 +19,25 @@ ApartmentPrice = pd.read_csv("Booli_sold.csv")
 # create a new column derived from existing columns and insert it in the first column.
 ApartmentPrice.insert(0, 'ppsqm', round(ApartmentPrice["soldPrice"]/ApartmentPrice["livingArea"],2)) 
 
-# create a new DataFrame containing only the top five records. 
 topFive = ApartmentPrice.sort_values("ppsqm", ascending = False).head()
+print(topFive.to_markdown(index=False))
+```
 
+    |    ppsqm |   listPrice |   rent |   livingArea |   rooms | published           |   constructionYear | objectType   |   booliId | soldDate   |   soldPrice | soldPriceSource   | url                                 |   floor |   additionalArea |   apartmentNumber |   plotArea | location.address.streetAddress   |   location.position.latitude |   location.position.longitude |   location.position.isApproximate | location.region.municipalityName   | location.region.countyName   |   location.distance.ocean | source.name   |   source.id | source.type   | source.url                   |
+    |---------:|------------:|-------:|-------------:|--------:|:--------------------|-------------------:|:-------------|----------:|:-----------|------------:|:------------------|:------------------------------------|--------:|-----------------:|------------------:|-----------:|:---------------------------------|-----------------------------:|------------------------------:|----------------------------------:|:-----------------------------------|:-----------------------------|--------------------------:|:--------------|------------:|:--------------|:-----------------------------|
+    | 104167   |     1595000 |   1464 |         24   |       1 | 2016-01-07 14:51:06 |               1935 | Lägenhet     |   2018259 | 2016-01-21 |     2500000 | bid               | https://www.booli.se/annons/2018259 |       3 |              nan |              1305 |        nan | Ekhagsvägen 8                    |                      59.3718 |                       18.0553 |                               nan | Stockholm                          | Stockholms län               |                       161 | Notar         |        1566 | Broker        | http://www.notar.se/         |
+    | 102083   |     1890000 |   1464 |         24   |       1 | 2016-06-11 08:55:51 |               1935 | Lägenhet     |   2125576 | 2016-06-21 |     2450000 | bid               | https://www.booli.se/annons/2125576 |       3 |              nan |              1305 |        nan | Ekhagsvägen 8                    |                      59.3718 |                       18.0553 |                               nan | Stockholm                          | Stockholms län               |                       161 | HusmanHagberg |        1610 | Broker        | http://www.husmanhagberg.se/ |
+    | 100000   |     1795000 |   1374 |         23   |       1 | 2016-04-15 19:10:49 |               1935 | Lägenhet     |   2078171 | 2016-04-28 |     2300000 | bid               | https://www.booli.se/annons/2078171 |       1 |              nan |              1105 |        nan | Ekhagsvägen 10                   |                      59.372  |                       18.0554 |                                 1 | Stockholm                          | Stockholms län               |                       135 | Notar         |        1566 | Broker        | http://www.notar.se/         |
+    |  88400   |     1750000 |   1144 |         25   |       1 | 2017-05-18 16:20:57 |               1936 | Lägenhet     |   2330886 | 2017-06-01 |     2210000 | bid               | https://www.booli.se/annons/2330886 |       0 |                0 |               nan |        nan | Torphagsvägen 4                  |                      59.3715 |                       18.0539 |                               nan | Stockholm                          | Stockholms län               |                       218 | HusmanHagberg |        1610 | Broker        | http://www.husmanhagberg.se/ |
+    |  85501.9 |     1895000 |   1522 |         26.9 |       1 | 2016-04-01 22:56:37 |               1968 | Lägenhet     |   2067384 | 2016-04-19 |     2300000 | bid               | https://www.booli.se/annons/2067384 |       2 |              nan |              1203 |        nan | Docentbacken 1B                  |                      59.3706 |                       18.0585 |                                 1 | Stockholm                          | Stockholms län               |                       298 | Notar         |        1566 | Broker        | http://www.notar.se/         |
+    
+
+
+```python
 # use the 'mean' function to calculate the average ppsqm.
 mean =  round(ApartmentPrice["ppsqm"].mean(),2)
 print("The avereage price per square meter in Ekhagen is ",mean)
+# create a new DataFrame containing only the top five records. 
 ```
 
     The avereage price per square meter in Ekhagen is  58759.38
@@ -52,84 +65,14 @@ print("The number of legitimate votes for all municipalities in Stockholm is" , 
 ```python
 # task 2: The highest voting percentage is observed in Munkfors municipality.
 VALDELTAGANDE = swedishElection2018.loc[:,["KOMMUNNAMN","VALDELTAGANDE"]]
-swedishElection2018.sort_values("S", ascending = False).head(1)
+NO_1Percentage = swedishElection2018.sort_values("S", ascending = False).head(1)
+print(NO_1Percentage.to_markdown(index=False))
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>LÄNSKOD</th>
-      <th>KOMMUNKOD</th>
-      <th>LÄNSNAMN</th>
-      <th>KOMMUNNAMN</th>
-      <th>M</th>
-      <th>C</th>
-      <th>L</th>
-      <th>KD</th>
-      <th>S</th>
-      <th>V</th>
-      <th>...</th>
-      <th>TRP</th>
-      <th>VL-S</th>
-      <th>ÖVR</th>
-      <th>OGEJ</th>
-      <th>BLANK</th>
-      <th>OG</th>
-      <th>RÖSTER GILTIGA</th>
-      <th>RÖSTANDE</th>
-      <th>RÖSTBERÄTTIGADE</th>
-      <th>VALDELTAGANDE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>188</th>
-      <td>17</td>
-      <td>62</td>
-      <td>Värmlands län</td>
-      <td>Munkfors</td>
-      <td>8.33</td>
-      <td>8.12</td>
-      <td>2.91</td>
-      <td>3.93</td>
-      <td>52.18</td>
-      <td>6.11</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.02</td>
-      <td>NaN</td>
-      <td>2340</td>
-      <td>2364</td>
-      <td>2777</td>
-      <td>85.13</td>
-    </tr>
-  </tbody>
-</table>
-<p>1 rows × 45 columns</p>
-</div>
-
-
+    |   LÄNSKOD |   KOMMUNKOD | LÄNSNAMN      | KOMMUNNAMN   |    M |    C |    L |   KD |     S |    V |   MP |    SD |   FI |   AfS |   BASIP |   CSIS |   DD |   DjuP |   EAP |   ENH |   FHS |   Gup |   INI |   KLP |   KrVP |   LPo |   MED |   NMR |   NORRP |   NYREF |   PP |   RNP |   S-FRP |   SKP |   SKÅ |   TRP |   VL-S |   ÖVR |   OGEJ |   BLANK |   OG |   RÖSTER GILTIGA |   RÖSTANDE |   RÖSTBERÄTTIGADE |   VALDELTAGANDE |
+    |----------:|------------:|:--------------|:-------------|-----:|-----:|-----:|-----:|------:|-----:|-----:|------:|-----:|------:|--------:|-------:|-----:|-------:|------:|------:|------:|------:|------:|------:|-------:|------:|------:|------:|--------:|--------:|-----:|------:|--------:|------:|------:|------:|-------:|------:|-------:|--------:|-----:|-----------------:|-----------:|------------------:|----------------:|
+    |        17 |          62 | Värmlands län | Munkfors     | 8.33 | 8.12 | 2.91 | 3.93 | 52.18 | 6.11 | 1.37 | 15.43 | 0.64 |  0.51 |    0.04 |    nan |  nan |    nan |   nan |  0.04 |   nan |   nan |   nan |  0.04 |    nan |  0.09 |  0.04 |  0.09 |     nan |     nan | 0.09 |   nan |     nan |   nan |  0.04 |   nan |    nan |   nan |    nan |    1.02 |  nan |             2340 |       2364 |              2777 |           85.13 |
+    
 
 
 ```python
