@@ -6,7 +6,9 @@ In our apartment price analysis, I started by creating a new column that represe
 
 Next, I sorted the table based on the 'ppsqm' column and displayed the top five entries with the highest prices, as requested.
 
-For the apartments located in Ekhagen, I used the 'mean' function to calculate the average ppsqm. I find the 'mean' function particularly intriguing because it simplifies the process of obtaining summary statistics from the data. Additionally, exploring different functions and methods in data analysis can lead to more efficient and effective ways of extracting insights from the dataset."
+For the apartments located in Ekhagen, I used the 'mean' function to calculate the average ppsqm. 
+
+I find the 'mean' function particularly intriguing because it simplifies the process of obtaining summary statistics from the data. Additionally, exploring different functions and methods in data analysis can lead to more efficient and effective ways of extracting insights from the dataset."
 
 
 ```python
