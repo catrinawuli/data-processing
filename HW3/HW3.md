@@ -105,65 +105,17 @@ birdSightings = pd.read_csv(url_2, parse_dates=['Startdatum', 'Slutdatum'] )
 # we group the dataset by "Artnamn" to check the frequency of different bird species.
 birdSightings_grouped = birdSightings.groupby("Artnamn").size().reset_index(name='Count')
 sorted_birdSightings1 = birdSightings_grouped.sort_values(by='Count', ascending=False)
-sorted_birdSightings1.head()
+print(sorted_birdSightings1.head().to_markdown(index=False))
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Artnamn</th>
-      <th>Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>61</th>
-      <td>Koltrast</td>
-      <td>718</td>
-    </tr>
-    <tr>
-      <th>148</th>
-      <td>Talgoxe</td>
-      <td>631</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Blåmes</td>
-      <td>629</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>Gräsand</td>
-      <td>531</td>
-    </tr>
-    <tr>
-      <th>132</th>
-      <td>Storskrake</td>
-      <td>522</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+    | Artnamn    |   Count |
+    |:-----------|--------:|
+    | Koltrast   |     718 |
+    | Talgoxe    |     631 |
+    | Blåmes     |     629 |
+    | Gräsand    |     531 |
+    | Storskrake |     522 |
+    
 
 ### Question 2: What is the monthly distribution of the top 3 most prevelant species
 We can observe that the top three most prevalent species show variation across different months.
@@ -313,7 +265,7 @@ print("The total number of different places is",numberLocation,)
     The total number of different places is ['Solna' 'Stockholm' 'Sollentuna' 'Lidingö']
     
 
-## Part 3 Predicting Strokes
+## Part 3: Predicting Strokes
 
 The dataset contains records of various individuals who had or or not had a stroke. Numerous pieces of information have been gathered about these individuals. This information may aid us in analyzing the potential causes of strokes and, consequently, help reduce the risk of strokes in the future.
 
@@ -323,11 +275,6 @@ After addressing the three questions I posed, it seems that age and BMI are pote
 ```python
 url3 = "https://raw.githubusercontent.com/mt4007-ht23/data/main/stroke-data.csv"
 strokeData = pd.read_csv(url3)
-```
-
-
-```python
-
 ```
 
 ### Question 1: What is the distribution of strokes in the dataset? How many individuals had strokes, and how many did not?
@@ -352,7 +299,7 @@ print(value_counts)
 
 
     
-![png](output_23_0.png)
+![png](output_22_0.png)
     
 
 
@@ -387,7 +334,7 @@ plt.show()
 
 
     
-![png](output_25_1.png)
+![png](output_24_1.png)
     
 
 
@@ -404,11 +351,6 @@ plt.show()
 
 
     
-![png](output_27_0.png)
+![png](output_26_0.png)
     
 
-
-
-```python
-
-```
