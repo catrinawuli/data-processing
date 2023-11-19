@@ -258,7 +258,7 @@ print(filtered_df.head().to_markdown(index=False))
 # group by "Artnamn" and check the number of the total observed birds according to the values from column "Antal"
 birdSightings_grouped2= birdSightings_dropna.groupby("Artnamn").sum("Antal")
 theRarestSpeces = birdSightings_grouped2.sort_values("Antal", ascending = True).head(20)
-print(theRarestSpeces.to_markdown(index=False)) #因为这个antal出来了很多并列第一的，所以只能用上面的test1再来看了。试图找最罕见的鸟。
+print(theRarestSpeces.to_markdown(index=False))
 ```
 
     |          Id |   Taxonsorteringsordning |   Antal |   Ostkoordinat |   Nordkoordinat |   Noggrannhet |   Diffusion |   Month |
