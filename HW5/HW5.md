@@ -74,6 +74,7 @@ for line_num, line in enumerate(textfile):
 
 textfile.seek(0)
 reg2 = re.compile(r'^(?=.*\#programming\b)(?=.*\#python\b).*$')
+print(">>>Comments contain both #programming and #python is", end = " ")
 
 for line_num, line in enumerate(textfile):
     line_num += 1
@@ -83,8 +84,10 @@ for line_num, line in enumerate(textfile):
 
 textfile.seek(0)
 line2 = textfile.readlines()[1]
-#print(">>>Comments contain both #programming and #python is", end = " ")
-#print(f"\n>>> comment 2 {'' if reg2.findall(line2) else 'does not'} contains both #programming and #python")
+
+print(f"\n>>> comment 2 {'' if reg2.findall(line2) else 'does not'} contains both #programming and #python")
 ```
 
-    6 15 21 30 
+    >>>Comments contain both #programming and #python is 6 15 21 30 
+    >>> comment 2 does not contains both #programming and #python
+    
