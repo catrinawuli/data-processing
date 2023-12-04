@@ -176,7 +176,9 @@ combined_data["country"] = combined_data["iso-3"].map(dictionary_country_data)
 pivoted = combined_data.pivot(index = "year", columns = "country", values = "num_per_cap")
 
 #we pivot the tables and display the countries with the highest number of cell phones per capita in 2019 in a table.
-sorted_countries = pivoted.sort_values(by = "2019",ascending=False , axis=1)
+sorted_countries_by_rows = pivoted.sort_index()
+sorted_countries = sorted_countries_by_rows.sort_values(by = "2019",ascending=False , axis=1)
+#sorted_countries.tail()
 print(sorted_countries.tail().to_markdown(index=False))
 ```
 
