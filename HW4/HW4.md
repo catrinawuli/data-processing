@@ -171,24 +171,10 @@ country_data = pd.read_csv(url3)
 #we map the country name to the merged table above. 
 dictionary_country_data = dict(zip(country_data['alpha-3'], country_data['name']))
 combined_data["country"] = combined_data["iso-3"].map(dictionary_country_data)
-```
 
-
-```python
 # Then we pivot the table which are combined with the informations from the three tables. 
 pivoted = combined_data.pivot(index = "year", columns = "country", values = "num_per_cap")
-pivoted.info()
-```
 
-    <class 'pandas.core.frame.DataFrame'>
-    Index: 40 entries, 1980 to 2019
-    Columns: 214 entries, nan to Zimbabwe
-    dtypes: float64(214)
-    memory usage: 67.2+ KB
-    
-
-
-```python
 #we pivot the tables and display the countries with the highest number of cell phones per capita in 2019 in a table.
 sorted_countries = pivoted.sort_values(by = "2019",ascending=False , axis=1)
 print(sorted_countries.tail().to_markdown(index=False))
@@ -219,6 +205,6 @@ plt.show()
 
 
     
-![png](output_15_0.png)
+![png](output_13_0.png)
     
 
