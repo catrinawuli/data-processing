@@ -5,7 +5,7 @@ Welcome to my repository!
 [Basic]()
 
 [Apartment Prices Analysis]()
-[Eploratory Data Analysis]()
+[Eploratory Data Analysis](https://github.com/catrinawuli/data-processing/blob/main/HW3/HW3.md)
 
 
 [Cleaning data](https://github.com/catrinawuli/data-processing/blob/main/HW4/HW4.md)
